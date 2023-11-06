@@ -19,7 +19,7 @@ const setTime = () => {
         let format24 = document.querySelector('#clockformat').checked
         document.querySelector('.analog-clock').classList.add('hide');
         document.querySelector('.digital-clock').classList.remove('hide');
-        let digitalclock = `<span id="current-hour">${checkTime(format24 ? hours % 12 : hours)}</span>:<span id="current-min">${checkTime(min)}</span>${document.querySelector('#secondsHandSwitch').checked ? ":<span id='current-sec'></span>" : ''} ${format24 ? `<span class="time-container">${hours > 12 ? "PM" : "AM"}</span>` : ''}`;
+        let digitalclock = `<span id="current-hour">${checkTime(format24 ? hours % 12 : hours)}</span>:<span id="current-min">${checkTime(min)}</span>` +  `${document.querySelector('#secondsHandSwitch').checked ? ":<span id='current-sec'>" + checkTime(sec) + "</span>" : ''}` + `${format24 ? `<span class="time-container">${hours > 12 ? "PM" : "AM"}</span>` : ''}`;
         document.querySelector('#current-time').innerHTML = digitalclock; 
     }
 
