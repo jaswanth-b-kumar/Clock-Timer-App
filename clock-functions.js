@@ -12,7 +12,13 @@ const setTime = () => {
         let secrotation = (sec * 360)/ 60;
         document.querySelector('#current-hour-analog').style.transform = `translateX(-50%) rotate(${hourrotation}deg)`;
         document.querySelector('#current-min-analog').style.transform = `translateX(-50%) rotate(${minrotation}deg)`;
-        document.querySelector('#current-sec-analog').style.transform = `translateX(-50%) rotate(${secrotation}deg)`;
+        if(document.querySelector("#secondsHandSwitch").checked){
+            document.querySelector('#current-sec-analog').style.transform = `translateX(-50%) rotate(${secrotation}deg)`;
+            document.querySelector('#current-sec-analog').classList.remove('hide');
+        }
+        else{
+            document.querySelector('#current-sec-analog').classList.add('hide');
+        }
     }
 
     else {
